@@ -34,7 +34,7 @@ namespace JobApplicationManagement.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetAllJobApplications()
-        {
+        { //git test for commit
             try
             {
                 List<JobApplicationView> apps = new List<JobApplicationView>();
