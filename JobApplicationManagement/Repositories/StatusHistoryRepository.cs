@@ -21,7 +21,6 @@ namespace JobApplicationManagement.Repositories
                 throw new ArgumentException();
             try
             {
-
                 _context.StatusHistories.Add(history);
                 await _context.SaveChangesAsync();
                 return history.Id;
@@ -35,6 +34,17 @@ namespace JobApplicationManagement.Repositories
                 throw new DatabaseException();
             }
         }
+
+        public async Task<List<StatusHistory>> GetByApplicationId(Guid applicationId)
+        {
+            try {
+                return await _context.StatusHistories.Where(sh => sh.JobApplicationId == applicationId).ToListAsync();
+            }
+            catch
+            {
+                throw;
+            }
+            }
 
         public async Task<bool> UpdateStatusHistory(StatusHistory history)
         {

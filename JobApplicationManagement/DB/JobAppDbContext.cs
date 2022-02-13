@@ -7,7 +7,7 @@ namespace JobApplicationManagement.DB
     {
         public JobAppDbContext(DbContextOptions<JobAppDbContext> options) : base(options)
         {
-
+            //job app db context
         }
 
 

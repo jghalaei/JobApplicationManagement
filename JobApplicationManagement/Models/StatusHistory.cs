@@ -21,11 +21,11 @@ namespace JobApplicationManagement.Models
 
         public string? Comment { get; set; }
 
-public StatusHistory(string status)
+public StatusHistory(string status="Created", string comment="")
         {
             this.Status = status;
             this.Date = DateTime.Now;
-
+            this.Comment= comment;
         }
 
         public bool IsValid()

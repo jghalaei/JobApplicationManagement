@@ -26,9 +26,8 @@ namespace JobApplicationManagement.Repositories
                     throw new InvalidDataException();
             try
             {
-
                 _context.JobApplications.Add(jobApplication);
-            
+           
                 int result = await _context.SaveChangesAsync();
                 return jobApplication.Id;
             }
