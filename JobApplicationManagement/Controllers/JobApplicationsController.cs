@@ -26,7 +26,7 @@ namespace JobApplicationManagement.Controllers
                     return StatusCode((int)HttpStatusCode.OK);
                 return StatusCode((int)HttpStatusCode.InternalServerError, exception.Message);
             }
-            return BadRequest(ModelState);
+            return BadRequest("Something is wrong");
         }
 
         [HttpGet]
