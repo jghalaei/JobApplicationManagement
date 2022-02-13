@@ -16,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 string conStr = builder.Configuration.GetConnectionString("JobAppConnectionString");
 builder.Services.AddDbContext<JobAppDbContext>(opt => opt.UseSqlServer(conStr));
 builder.Services.AddTransient<JobApplicationService>();
+builder.Services.AddTransient<StatusHistoryService>();
 builder.Services.AddTransient<JobApplicationRepository>();
 builder.Services.AddTransient<StatusHistoryRepository>();
 

@@ -7,11 +7,12 @@ using System.Net;
 
 namespace JobApplicationManagement.Controllers
 {
-    [Route("JobApplication")]
-    public class JobApplicationController :Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class JobApplicationsController :Controller
     {
         private readonly JobApplicationService _appService;
-        public JobApplicationController(JobApplicationService appService)
+        public JobApplicationsController(JobApplicationService appService)
         {
             this._appService = appService;
         }
@@ -23,13 +24,9 @@ namespace JobApplicationManagement.Controllers
                 (bool result, Exception? exception) = await  _appService.Create(AppData);
                 if (result)
                     return StatusCode((int)HttpStatusCode.OK);
-
                 return StatusCode((int)HttpStatusCode.InternalServerError, exception.Message);
-
             }
             return BadRequest(ModelState);
-            
-
         }
 
         [HttpGet]
@@ -100,5 +97,6 @@ namespace JobApplicationManagement.Controllers
                 
             
         }
+
     }
 }
